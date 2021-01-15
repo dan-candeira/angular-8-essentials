@@ -19,7 +19,7 @@ export class ItemsService {
   }
 
   load(id) {
-    return this.http.get(`${BASE_URL}${id}`);
+    return this.http.get<Item>(`${BASE_URL}${id}`);
   }
 
   create(item: Item) {

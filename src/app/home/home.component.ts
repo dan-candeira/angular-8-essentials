@@ -9,7 +9,7 @@ import { Item } from '../shared/item.model';
 
 })
 export class HomeComponent implements OnInit {
-  items: {};
+  items: Item[];
 
   constructor(private itemsService: ItemsService) { }
 
