@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-rest';
+  title = 'Angular App';
+  links = [
+    { path: '/home', icon: 'home', label: 'Home'},
+    { path: '/items', icon: 'list', label: 'Items'},
+    { path: '/widgets', icon: 'view_quilt', label: 'Widgets'}
+  ];
 }
