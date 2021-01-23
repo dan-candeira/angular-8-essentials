@@ -1,16 +1,4 @@
-mat-list-item {
-  cursor: pointer;
-}
-
-mat-list-item:hover {
-  background-color: hsl(0, 0, 95%);
-}
-
-form {
-  padding: {
-    top: 1rem;
-    right: 1.2rem;
-    bottom: 1rem;
-    left: 1.2rem;
-  }
+.mat-card-content {
+  display: flex;
+  flex-direction: column;
 }

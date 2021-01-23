@@ -1,54 +1,18 @@
 <div class="container">
   <!-- WIDGETS DETAILS -->
-  <div class="col-50">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <h1>Widgets</h1>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item
-            *ngFor="let widget of widgets"
-            (click)="selectWidget(widget)"
-          >
-            <h3 matLine>{{ widget.name }}</h3>
-            <button mat-icon-button>
-              <mat-icon>close</mat-icon>
-            </button>
-            <p matLine>{{ widget.description }}</p>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <app-widget-list
+    class="col-50"
+    [widgets]="widgets"
+    (selected)="selectWidget($event)"
+    (delete)="deleteWidget($event)"
+    [readonly]="readonly"
+  ></app-widget-list>
 
   <!-- WIDGETS DETAILS -->
-  <div class="col-50">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <h1 *ngIf="selectedWidget">
-            {{ selectedWidget.name }}
-          </h1>
-          <h1 *ngIf="!selectedWidget">Select a Widget</h1>
-        </mat-card-title>
-      </mat-card-header>
-      <form>
-        <mat-card-content *ngIf="selectedWidget">
-          {{ selectedWidget.description }}
-        </mat-card-content>
-        <mat-card-content *ngIf="!selectedWidget">
-          SELECTED WIDGET DETAILS
-        </mat-card-content>
-        <mat-card-actions>
-          <button type="submit" mat-button>Save</button>
-          <button type="submit" mat-button (click)="selectWidget(null)">
-            Cancel
-          </button>
-        </mat-card-actions>
-      </form>
-    </mat-card>
-  </div>
+  <app-widget-detail
+    class="col-50"
+    [widget]="selectedWidget"
+    (cancelled)="cancel($event)"
+    (saved)="save($event)"
+  ></app-widget-detail>
 </div>
